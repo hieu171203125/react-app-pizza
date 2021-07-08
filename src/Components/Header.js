@@ -49,8 +49,14 @@ function Header() {
           <div className={classes.hname}>hieu</div>
           <div className={classes.listmenu}>
             <nav className={classes.navmenu} ref={but}>
-              <button className={classes.btn}>Login</button>
-              <button className={classes.btn}>info</button>
+              <button className={classes.btn}>
+                <Typography className={classes.titlebtn}>
+                  wallet connect
+                </Typography>
+              </button>
+              <button className={classes.btn}>
+                <Typography className={classes.titlebtn}>info</Typography>
+              </button>
             </nav>
           </div>
           {/* <div className={classes.listmenu}>
@@ -133,7 +139,7 @@ const useStyles = makeStyles((theme) => ({
   walletAdress: {
     position: "absolute",
     height: 35,
-    width: "25%",
+    width: "30%",
     background: `url(${wallet})`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -144,9 +150,10 @@ const useStyles = makeStyles((theme) => ({
   },
   textwallet: {
     marginLeft: 10,
+    marginTop: 3,
     fontSize: 16,
     [theme.breakpoints.down("md")]: {
-      fontSize: 13,
+      fontSize: 12,
       marginLeft: "1%",
     },
   },
@@ -192,9 +199,17 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
     "&:hover": {
       transform: "scale(1.10)",
     },
+  },
+  titlebtn: {
+    width: "min-content",
+    lineHeight: 1,
   },
   link: {
     textDecoration: "none",
