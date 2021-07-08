@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import { Grid } from "@material-ui/core";
@@ -24,12 +24,13 @@ function App() {
       <Router>
         <Switch>
           <Route path="/">
-            <Grid container></Grid>
+            <Grid container alignContent="center">
+              <LeftButton />
+              <GirlImage />
+            </Grid>
           </Route>
         </Switch>
       </Router>
-      <LeftButton />
-      <GirlImage />
     </div>
   );
 }

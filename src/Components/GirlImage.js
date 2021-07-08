@@ -14,6 +14,7 @@ export default function GirlImage() {
 
 const useStyles = makeStyles((theme) => ({
   girlImage: {
+    zIndex: 10000,
     width: 480,
     position: "fixed",
     bottom: 0,
@@ -30,6 +31,16 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1,
       bottom: 0,
       right: 0,
+    },
+  },
+  "@media (max-height: 675.95px)": {
+    girlImage: {
+      width: 440,
+    },
+  },
+  "@media (max-width: 769.95px)": {
+    girlImage: {
+      display: "none",
     },
   },
 }));

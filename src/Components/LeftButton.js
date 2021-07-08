@@ -93,5 +93,25 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Crimson Text, serif",
     fontWeight: 700,
     transition: "transform .2s",
+    "&:hover": {
+      transform: "scale(1.15)",
+    },
+  },
+  "@media (max-width: 859.95px)": {
+    listBtn: {
+      left: "10%",
+    },
+    "@keyframes myEffect": {
+      "0%": {
+        opacity: 0,
+        bottom: -1000,
+        left: "10%",
+      },
+      "100%": {
+        opacity: 1,
+        bottom: "81%",
+        left: "10%",
+      },
+    },
   },
 }));
