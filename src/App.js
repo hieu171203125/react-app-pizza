@@ -3,7 +3,8 @@ import "./App.css";
 
 import { Grid } from "@material-ui/core";
 import Header from "./Components/Header";
-
+import LeftButton from "./Components/LeftButton";
+import GirlImage from "./Components/GirlImage";
 function App() {
   return (
     <div className="App" style={{ width: "100%", height: "100%" }}>
@@ -15,6 +16,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <LeftButton />
+      <GirlImage />
     </div>
   );
 }
