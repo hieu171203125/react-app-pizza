@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
-
 import {
   Button,
   Container,
@@ -20,6 +19,9 @@ import logo from "./Assets/Gacha/logo.png";
 import button_header from "./Assets/Gacha/button_header.png";
 import { Hidden } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import LeftButton from "./Components/LeftButton";
+import GirlImage from "./Components/GirlImage";
+
 function App() {
   const classes = useStyles();
   const height = document.getElementById("root").offsetHeight - 1;
@@ -109,6 +111,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <LeftButton />
+      <GirlImage />
     </div>
   );
 }
