@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Button,
   IconButton,
@@ -10,7 +10,7 @@ import {
 import bg from "../Assets/Gacha/background.png";
 import hlogo from "../Assets/Gacha/background_logo.png";
 import wallet from "../Assets/Gacha/wallet.png";
-import header from "../Assets/Gacha/header.png";
+import imgheader from "../Assets/Gacha/header.png";
 import name from "../Assets/Gacha/background_name.png";
 import logo from "../Assets/Gacha/logo.png";
 import button_header from "../Assets/Gacha/button_header.png";
@@ -18,26 +18,25 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Fragment } from "react";
 function Header() {
   const classes = useStyles();
+  const header = useRef();
+  const but = useRef();
+  window.addEventListener("load", () => {
+    if (header.current) {
+      header.current.style.transform = "translateY(0px)";
+    }
+    if (but.current) {
+      but.current.style.transform = "translateY(20px)";
+    }
+    setTimeout(() => {
+      if (but.current) {
+        but.current.style.transform = "translateY(0px)";
+      }
+    }, 1500);
+  });
   return (
     <Fragment>
-      <AppBar
-        position="static"
-        style={
-          {
-            //   width: "100%",
-            //   height: "auto",
-            //   background: `url(${header})`,
-            //   backgroundSize: "cover",
-            //   backgroundRepeat: "no-repeat",
-            //   backgroundPosition: "center",
-            //   position: "absolute",
-          }
-        }
-        className={classes.header}
-        color="transparent"
-      >
+      <AppBar className={classes.header} color="transparent" ref={header}>
         <Hidden only={["sm", "xs"]}>
-          {/* <div className={classes.header}> */}
           <div className={classes.walletAdress}>
             <Typography className={classes.textwallet}>
               {" "}
@@ -49,7 +48,7 @@ function Header() {
           </div>
           <div className={classes.hname}>hieu</div>
           <div className={classes.listmenu}>
-            <nav className={classes.navmenu}>
+            <nav className={classes.navmenu} ref={but}>
               <button className={classes.btn}>Login</button>
               <button className={classes.btn}>info</button>
             </nav>
@@ -61,10 +60,8 @@ function Header() {
                         <Button className={classes.btn}>more</Button>
                       </nav>
                     </div> */}
-          {/* </div> */}
         </Hidden>
         <Hidden only={["md", "lg", "xl"]}>
-          {/* <div className={classes.headermobile}> */}
           <div className={classes.hlogomobile}>
             <div className={classes.logomobile}></div>
           </div>
@@ -77,7 +74,6 @@ function Header() {
               <MoreVertIcon />
             </IconButton>
           </div>
-          {/* </div> */}
         </Hidden>
       </AppBar>
     </Fragment>
@@ -86,20 +82,25 @@ function Header() {
 const height_header = 100;
 const height_backgroud_logo = 132;
 const width_backgroud_logo = 145;
+const height_logo = 82;
+const width_logo = 86;
 const height_header_mobile = 60;
 const height_backgroud_logo_mobile = 72;
 const width_backgroud_logo_mobile = 86;
 const useStyles = makeStyles((theme) => ({
   header: {
+    fontFamily: "Crimson Text, serif !important",
+    transition: "1.8s",
+    transform: "translateY(-150px)",
     width: "100%",
-    background: `url(${header})`,
+    background: `url(${imgheader})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     position: "relative",
     height: height_header,
     top: 0,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       height: height_header_mobile,
       display: "flex",
       justifyContent: "space-between",
@@ -121,12 +122,13 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 17,
   },
   logo: {
-    height: 70,
-    width: 70,
+    height: height_logo,
+    width: width_logo,
     backgroundImage: `url(${logo})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    marginLeft: 10,
+    marginLeft: 14,
+    marginTop: 7,
   },
   walletAdress: {
     position: "absolute",
@@ -165,7 +167,6 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "center",
     justifyContent: "center",
     borderRadius: 5,
-    fontFamily: "monospace",
     fontSize: 20,
     color: "white",
   },
@@ -184,7 +185,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     paddingBottom: 9,
     paddingRight: 17,
-    fontFamily: "monospace",
     fontWeight: 600,
     fontSize: 20,
     color: "white",
@@ -210,6 +210,8 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   navmenu: {
+    transition: "1.8s",
+    transform: "translateY(-150px)",
     height: "100%",
     display: "flex",
     flexWrap: "nowrap",
@@ -281,7 +283,6 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "center",
     justifyContent: "center",
     borderRadius: 5,
-    fontFamily: "monospace",
     fontSize: 20,
     color: "white",
   },

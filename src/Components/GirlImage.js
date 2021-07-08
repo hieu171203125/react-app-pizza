@@ -7,7 +7,7 @@ export default function GirlImage() {
 
   return (
     <>
-      <img src={girlImage} class={classes.girlImage} alt="" />;
+      <img src={girlImage} className={classes.girlImage} alt="" />;
     </>
   );
 }
